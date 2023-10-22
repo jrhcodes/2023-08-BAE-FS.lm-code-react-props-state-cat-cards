@@ -12,6 +12,7 @@ const CatImage: React.FC<CatImageProps> = ({ image, altText, licenceType, licenc
     <>
         <img className='card__image' src={image} alt={altText} />
         <p className='card__text__small'>
+
             Image licenced under <a href={licenceUrl}>{licenceType}</a>
             {attributionName && (
                 <>
@@ -19,6 +20,7 @@ const CatImage: React.FC<CatImageProps> = ({ image, altText, licenceType, licenc
                 </>
             )}
         </p>
+
     </>
 );
 

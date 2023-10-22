@@ -30,6 +30,12 @@ export const defaultCatArray = [   {
              birthYear: 2008,
          },
          {
+            name: "Captain Catface",
+            species: "Sea Cattain",
+            favFoods: ["fish, rum"],
+            birthYear: 2016,
+          },
+         {
              name: 'Meowsalot',
              species: 'Cat',
              favFoods: ['tuna', 'catnip', 'celery'],

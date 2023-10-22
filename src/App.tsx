@@ -3,8 +3,10 @@ import Navbar from './components/navbar';
 import Header from './components/header';
 import Footer from './components/footer';
 import { useState } from 'react';
+
 import Cat from './data/cat';
 import { defaultCatArray } from './data/cat';
+
 import CatCard from './components/cat_card';
 
 function App(): JSX.Element {
@@ -13,7 +15,9 @@ function App(): JSX.Element {
 	return (
 		<>
 			<Navbar />
-			<Header />
+			<Header
+				numberOfCats={cats.length}
+			/>
 
 			<main>
 				<div className='cards__wrapper'>{cats.map((cat, index) => (
