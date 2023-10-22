@@ -21,9 +21,7 @@ function App(): JSX.Element {
 			/>
 
 			<main>
-				<div className='cards__wrapper'>{cats.map((cat) =>
-
-				(
+				<div className='cards__wrapper'>{cats.map((cat) => (
 					<CatCard
 						name={cat.name}
 						species={cat.species}
@@ -32,7 +30,6 @@ function App(): JSX.Element {
 						key={cat.key}
 						id={cat.key}
 					/>
-
 				)
 
 				)}</div>
