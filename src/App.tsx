@@ -4,6 +4,7 @@ import Header from './components/header';
 import Footer from './components/footer';
 import { useState } from 'react';
 
+
 import Cat from './data/cat';
 import { defaultCatArray } from './data/cat';
 
@@ -20,15 +21,21 @@ function App(): JSX.Element {
 			/>
 
 			<main>
-				<div className='cards__wrapper'>{cats.map((cat, index) => (
+				<div className='cards__wrapper'>{cats.map((cat) =>
+
+				(
 					<CatCard
 						name={cat.name}
 						species={cat.species}
 						favFoods={cat.favFoods}
 						birthYear={cat.birthYear}
-						catIndex={index}
+						key={cat.key}
+						id={cat.key}
 					/>
-				))}</div>
+
+				)
+
+				)}</div>
 			</main>
 
 			<Footer />

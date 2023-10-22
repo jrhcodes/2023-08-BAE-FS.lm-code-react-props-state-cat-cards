@@ -1,7 +1,5 @@
 import icon from '../assets/cat_icon.png';
 
-// components are functions that return JSX.Element
-// i.e. a React.FC IS a function that returns JSX.Element
 function Footer(): JSX.Element {
 	return (
 		<footer>
