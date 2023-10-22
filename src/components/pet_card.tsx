@@ -1,4 +1,4 @@
-import CatImage from "./cat_image";
+import PetImage from "./pet_image";
 import { findImage } from "../data/images";
 
 export interface CatCardProps {
@@ -19,7 +19,7 @@ const CatCard: React.FC<CatCardProps> = ({ name, species, favFoods, birthYear, i
         <p className="card__text">Birth Year: {birthYear}</p>
 
         {imageData && (
-            <CatImage
+            <PetImage
                 image={imageData.image}
                 altText={imageData.altText}
                 licenceType={imageData.licenceType}

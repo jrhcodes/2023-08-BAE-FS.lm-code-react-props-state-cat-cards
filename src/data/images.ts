@@ -1,4 +1,4 @@
-import {defaultCatArray} from './cat';
+import {defaultPetArray} from './pet';
 
 import cat1 from '../assets/images/cat1.jpg';
 import cat2 from '../assets/images/cat2.jpg';
@@ -111,7 +111,7 @@ const images = [
         attributionUrl: 'https://www.flickr.com/people/x-oph/'
     }
 ].map( (image, index) => { 
-    const value =  {...image, id: defaultCatArray[index].key};
+    const value =  {...image, id: defaultPetArray[index].key};
     return value;
 });
 

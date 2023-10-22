@@ -1,5 +1,5 @@
 // cat_image.tsx
-interface CatImageProps {
+interface PetImageProps {
     image: string;
     altText: string;
     licenceType: string;
@@ -8,7 +8,7 @@ interface CatImageProps {
     attributionUrl?: string;
 }
 
-const CatImage: React.FC<CatImageProps> = ({ image, altText, licenceType, licenceUrl, attributionName, attributionUrl }) => (
+const PetImage: React.FC<PetImageProps> = ({ image, altText, licenceType, licenceUrl, attributionName, attributionUrl }) => (
     <>
         <img className='card__image' src={image} alt={altText} />
         <p className='card__text__small'>
@@ -24,4 +24,4 @@ const CatImage: React.FC<CatImageProps> = ({ image, altText, licenceType, licenc
     </>
 );
 
-export default CatImage;
+export default PetImage;

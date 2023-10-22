@@ -1,14 +1,4 @@
-import { v4 as uuidv4 } from 'uuid';
-
-export default interface Cat {
-    name: string;
-    species: string;
-    favFoods: Array<string>; 
-    birthYear: number;
-    key: string; // no need to make id optional, see below
-  }
-
-export const defaultCatArray : Array<Cat> = [   {
+const defaultCatArray = [   {
              name: 'Little Miss Purrfect',
              species: 'Cat',
              favFoods: ['wet food', 'dry food'],
@@ -86,4 +76,6 @@ export const defaultCatArray : Array<Cat> = [   {
              favFoods: ['milk'],
              birthYear: 2021,
          }
- ].map(cat => { return {...cat, key : uuidv4()}}); 
+ ]; 
+
+ export default defaultCatArray;

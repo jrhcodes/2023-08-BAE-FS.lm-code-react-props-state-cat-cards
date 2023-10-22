@@ -5,34 +5,62 @@ import Footer from './components/footer';
 import { useState } from 'react';
 
 
-import Cat from './data/cat';
-import { defaultCatArray } from './data/cat';
+import Pet from './data/pet';
+import { defaultPetArray } from './data/pet';
 
-import CatCard from './components/cat_card';
+import PetCard from './components/pet_card';
+import FilterCard from './components/filter_card';
 
 function App(): JSX.Element {
 
-	const [cats, setCats] = useState<Array<Cat>>(defaultCatArray);
+	const [speciesFilterText, setSpeciesFilterText] = useState('');
+	const [favFoodFilterText, setFavFoodFilterText] = useState('');
+
+	const [pets, setPets] = useState<Array<Pet>>(defaultPetArray);
+
+	const [minYearFilterValue, setMinYearFilterValue] = useState(Math.min(...pets.map(pet => pet.birthYear)));
+	const [maxYearFilterValue, setMaxYearFilterValue] = useState(Math.max(...pets.map(pet => pet.birthYear)));
+
+
+	const filteredPetArray = pets.filter(pet =>
+		pet.species.toLowerCase().includes(speciesFilterText.toLowerCase()) &&
+		pet.favFoods.some(food => food.includes(favFoodFilterText)) &&
+		pet.birthYear >= minYearFilterValue &&
+		pet.birthYear <= maxYearFilterValue
+	);
+
+
 	return (
 		<>
 			<Navbar />
 			<Header
-				numberOfCats={cats.length}
+
+				numberOfPets={pets.length}
+				numberOfPetsDisplayed={filteredPetArray.length}
 			/>
 
 			<main>
-				<div className='cards__wrapper'>{cats.map((cat) => (
-					<CatCard
-						name={cat.name}
-						species={cat.species}
-						favFoods={cat.favFoods}
-						birthYear={cat.birthYear}
-						key={cat.key}
-						id={cat.key}
-					/>
-				)
+				<FilterCard
+					setSpeciesFilterText={setSpeciesFilterText}
+					setFavFoodFilterText={setFavFoodFilterText}
+					setMinYearFilterValue={setMinYearFilterValue}
+					setMaxYearFilterValue={setMaxYearFilterValue}
+					minYearFilterValue={minYearFilterValue}
+					maxYearFilterValue={maxYearFilterValue}
+				/>
+				<div className='cards__wrapper'>{
+					filteredPetArray.map((pet) => (
+						<PetCard
+							name={pet.name}
+							species={pet.species}
+							favFoods={pet.favFoods}
+							birthYear={pet.birthYear}
+							key={pet.key}
+							id={pet.key}
+						/>
+					)
 
-				)}</div>
+					)}</div>
 			</main>
 
 			<Footer />
